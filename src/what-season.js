@@ -13,12 +13,12 @@ const {parsers} = require("mocha/lib/cli/config");
  *
  */
 function getSeason(date) {
-    if (date === undefined) {
 
+    if (date === undefined) {
         return 'Unable to determine the time of year!'
     }
-    if (date === null) {
-        return 'Invalid date!'
+    if (date === null || typeof date !== "number") {
+        throw new NotImplementedError('Invalid date!');
     }
     if (date.getMonth() < 2 || date.getMonth() === 11) {
         return 'winter'
