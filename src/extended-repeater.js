@@ -25,14 +25,16 @@ function repeater(str, options) {
             arr.push(str.toString())
 
             for (let j = 0; j < options.additionRepeatTimes; j++) {
-                if (options.separator !== '') {
-                    if (options.additionSeparator === '') {
-                        arr.push('|')
+
+                if (options.addition !== null) {
+                    arr.push(options.addition)
+                    if (options.additionSeparator === null) {
+                            arr.push('|')
                     } else {
                         arr.push(options.additionSeparator)
                     }
                 }
-                arr.push(options.addition)
+
             }
 
             if(i<options.repeatTimes-1) {
